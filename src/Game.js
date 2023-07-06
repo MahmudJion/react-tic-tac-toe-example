@@ -85,9 +85,9 @@ class Game extends React.Component {
   }
 
   sortMoves() {
-    this.setState({
-      history: this.state.history.reverse(),
-    });
+    this.setState((prevState) => ({
+      history: prevState.history.slice().reverse(),
+    }));
   }
 
   reset() {
@@ -106,7 +106,9 @@ class Game extends React.Component {
 
       return (
         <li key={move}>
-          <button className={`${classButton} button`} onClick={() => this.jumpTo(move)}>
+          <button className={`button ${classButton}`} onClick
+
+={() => this.jumpTo(move)}>
             {`${desc} ${currentLocation}`}
           </button>
         </li>
@@ -128,7 +130,7 @@ class Game extends React.Component {
           <Board
             squares={current.squares}
             winnerSquares={winnerRow}
-            onClick={i => this.handleClick(i)}
+            onClick={(i) => this.handleClick(i)}
           />
         </div>
         <div className="game-info">
