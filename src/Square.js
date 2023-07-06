@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Square = props => (
-  <button className={`${props.winnerClass} square`} onClick={props.onClick}>
+const Square = (props) => (
+  <button className={`square ${props.winnerClass}`} onClick={props.onClick}>
     {props.value}
   </button>
 );
